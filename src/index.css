@@ -8,6 +8,8 @@ html,
 body {
   font-family: "Inconsolata", monospace;
   height: 100%;
+  line-height: 100%;
+  letter-spacing: 0.03em;
 }
 #root {
   height: 100%;
