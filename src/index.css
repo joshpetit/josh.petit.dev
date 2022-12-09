@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Noto+Sans:wght@300&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  font-family: "Inconsolata", monospace;
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+
+.web-cam { 
+  mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
