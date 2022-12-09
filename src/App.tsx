@@ -31,16 +31,16 @@ function Header() {
         <p class="">Love God, work hard, help others, and experience life.</p>
       </div>
       <div class="flex w-full px-28 py-2 justify-evenly">
-        <SocialIcon icon={instagram}/>
+        <SocialIcon icon={instagram} />
         <SocialIcon icon={linkedin} />
       </div>
     </div>
   );
 }
 
-function SocialIcon(props: {icon: string}) {
+function SocialIcon(props: { icon: string }) {
   return (
-    <div class="bg-black hover:bg-baseLight transition-colors w-fit overflow-visible rounded">
+    <div class={"w-fit overflow-visible"}>
       <img class="h-10 social-icon" src={props.icon} />
     </div>
   );

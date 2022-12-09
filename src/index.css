@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Noto+Sans:wght@300&display=swap");
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 html,
 body {
   font-family: "Inconsolata", monospace;
@@ -19,13 +20,12 @@ body {
 }
 
 .social-icon {
-  /* filter: drop-shadow(-3px 3px 0px rgba(0, 0, 0, 1)); */
+  filter: drop-shadow(-3px 3px 0px rgba(0, 0, 0, 1));
   position: relative;
   transition-duration: 200ms;
-  left: 2.5px;
-  bottom: 2.5px;
+  left: 3px;
+  bottom: 3px;
 }
-
 
 .social-icon:hover {
   filter: none;
@@ -34,4 +34,3 @@ body {
   bottom: 0px;
 }
 
-@tailwind utilities;
