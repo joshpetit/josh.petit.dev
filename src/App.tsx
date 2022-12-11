@@ -1,7 +1,8 @@
-import { Component, createEffect, createSignal, For, Index } from "solid-js";
+import { Show } from "solid-js";
 
 import instagram from "./instagram.svg";
 import megaphone from "./megaphone.svg";
+import code from "./code.svg";
 import youtube from "./youtube.svg";
 import linkedin from "./linkedin.svg";
 
@@ -15,7 +16,7 @@ function App() {
 
 function Header() {
   return (
-    <div class="">
+    <div>
       <div class="bg-baseLight rounded-b-3xl p-5 flex flex-col items-center">
         <div class="flex border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 rounded-full w-40 mb-4 web-cam">
           <video
@@ -30,6 +31,9 @@ function Header() {
         </div>
         <div class="mb-4 px-6">
           <p class="text-3xl font-extrabold">Joshua Petitma</p>
+          <Show when={false}>
+            <p class="text-s mb-2">(Joshua "Pey tee ma")</p>
+          </Show>
           <p class="font-bold">
             Love God, work hard, help others, and experience life.
           </p>
@@ -40,13 +44,31 @@ function Header() {
         </div>
       </div>
 
-      <div class="flex flex-col items-center mt-10 font-noto-sans mx-4">
-        <div class="relative bottom-10">
-          <img class="h-24 z-10 absolute" src={megaphone} />
-        </div>
-        <BioItem />
+      <div class="flex flex-col items-center mt-7 font-noto-sans mx-4">
+        <BioItem
+          title="YouTube"
+          icon={youtube}
+          graphic={megaphone}
+          graphicPosition="top-left"
+          videoSource="/src/assets/ytgif.mp4"
+          videoPoster="/src/assets/nice_bg.png"
+        >
+          Me talking about tech I use to supercharge my life and occasionally
+          skits!
+        </BioItem>
         <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem />
+
+        <BioItem
+          title="YouTube"
+          icon={youtube}
+          graphic={megaphone}
+          graphicPosition="bottom-right"
+          videoSource="/src/assets/ytgif.mp4"
+          videoPoster="/src/assets/nice_bg.png"
+        >
+          Me talking about tech I use to supercharge my life and occasionally
+          skits!
+        </BioItem>
       </div>
     </div>
   );
@@ -60,28 +82,48 @@ function SocialIcon(props: { icon: string }) {
   );
 }
 
-function BioItem(props: {}) {
+function BioItem(props: {
+  title: string;
+  graphic: string;
+  icon: string;
+  graphicPosition: "top-left" | "bottom-right";
+  children: string;
+  videoPoster: string;
+  videoSource: string;
+}) {
   return (
-    <div class="overflow-hidden bg-baseLight hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-2xl relative">
-      <video
-        class="object-cover"
-        poster="/src/assets/nice_bg.png"
-        muted
-        autoplay
-        loop
-      >
-        <source src="/src/assets/ytgif.mp4" type="video/mp4" />
-      </video>
-      <div class="py-2">
-        <h2 class="font-extrabold text-l flex items-center justify-center">
-          YouTube <img class="ml-1 h-4" src={youtube} />
-        </h2>
+    <div class="flex flex-col">
+      <Show when={props.graphicPosition == "top-left"}>
+        <div class="relative bottom-10">
+          <img class="h-24 z-20 absolute" src={props.graphic} />
+        </div>
+      </Show>
+      <div class="overflow-hidden bg-baseLight z-10 hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-3xl relative border-solid border-black border-4">
+        <video
+          class="object-cover"
+          poster={props.videoPoster}
+          muted
+          autoplay
+          loop
+        >
+          <source src={props.videoSource} type="video/mp4" />
+        </video>
+        <div class="py-2">
+          <h2 class="font-extrabold text-l flex items-center justify-center">
+            {props.title} <img class="ml-1 h-4" src={props.icon} />
+          </h2>
 
-        <p class="font-medium px-4 py-1">
-          Me talking about tech I use to supercharge my life and occasionally
-          skits!
-        </p>
+          <p class="font-medium px-4 py-1">{props.children}</p>
+        </div>
       </div>
+      <Show when={props.graphicPosition == "bottom-right"}>
+        <div class="self-end relative">
+          <img
+            class="h-24 z-0 bottom-0 left-[80%] absolute"
+            src={props.graphic}
+          />
+        </div>
+      </Show>
     </div>
   );
 }
