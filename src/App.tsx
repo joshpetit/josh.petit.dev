@@ -1,6 +1,7 @@
 import { Show } from "solid-js";
 
 import instagram from "./instagram.svg";
+import github from "./github.svg";
 import megaphone from "./megaphone.svg";
 import code from "./code.svg";
 import youtube from "./youtube.svg";
@@ -46,18 +47,6 @@ function Header() {
 
         <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
           <BioItem
-            title="Github"
-            icon={youtube}
-            graphic={code}
-            graphicPosition="bottom-right"
-            videoSource="/src/assets/ytgif.mp4"
-            videoPoster="/src/assets/nice_bg.png"
-          >
-            Me talking about tech I use to supercharge my life and occasionally
-            skits!
-          </BioItem>
-          <div class="bg-black rounded-full h-3 w-3" />
-          <BioItem
             title="YouTube"
             icon={youtube}
             graphic={megaphone}
@@ -67,6 +56,17 @@ function Header() {
           >
             Me talking about tech I use to supercharge my life and occasionally
             skits!
+          </BioItem>
+          <div class="bg-black rounded-full h-3 w-3" />
+          <BioItem
+            title="Github"
+            icon={github}
+            graphic={code}
+            graphicPosition="bottom-right"
+            videoSource="/src/assets/coding.mp4"
+            videoPoster="/src/assets/nice_bg.png"
+          >
+            Find my dotfiles and programs/packages I make 
           </BioItem>
 
       </div>
