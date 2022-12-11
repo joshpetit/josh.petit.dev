@@ -1,5 +1,7 @@
 import { Show } from "solid-js";
 
+import openbook from "./openbook.svg";
+import petitdev from "./petit.dev-partial.svg";
 import instagram from "./instagram.svg";
 import github from "./github.svg";
 import megaphone from "./megaphone.svg";
@@ -45,30 +47,45 @@ function Header() {
         </div>
       </div>
 
-        <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
-          <BioItem
-            title="YouTube"
-            icon={youtube}
-            graphic={megaphone}
-            graphicPosition="top-left"
-            videoSource="/src/assets/ytgif.mp4"
-            videoPoster="/src/assets/nice_bg.png"
-          >
-            Me talking about tech I use to supercharge my life and occasionally
-            skits!
-          </BioItem>
-          <div class="bg-black rounded-full h-3 w-3" />
-          <BioItem
-            title="Github"
-            icon={github}
-            graphic={code}
-            graphicPosition="bottom-right"
-            videoSource="/src/assets/coding.mp4"
-            videoPoster="/src/assets/nice_bg.png"
-          >
-            Find my dotfiles and programs/packages I make 
-          </BioItem>
-
+      <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
+        <BioItem
+          title="YouTube"
+          icon={youtube}
+          graphic={megaphone}
+          graphicPosition="top-left"
+          videoSource="/src/assets/ytgif.mp4"
+          videoPoster="/src/assets/nice_bg.png"
+        >
+          Me talking about tech I use to supercharge my life and occasionally
+          skits!
+        </BioItem>
+        <div class="bg-black rounded-full h-3 w-3" />
+        <BioItem
+          title="Github"
+          icon={github}
+          graphic={code}
+          graphicPosition="bottom-right"
+          videoSource="/src/assets/coding.mp4"
+          videoPoster="/src/assets/nice_bg.png"
+        >
+          Find my dotfiles and programs/packages I make
+        </BioItem>
+        <div class="bg-black rounded-full h-3 w-3" />
+        <BioItem
+          title="joshministers.com"
+          icon={openbook}
+          imageSource="/src/assets/joshministers.png"
+        >
+          A Life & Religion blog where I post devotionals and sermons I make.
+        </BioItem>
+        <div class="bg-black rounded-full h-3 w-3" />
+        <BioItem
+          title="petit.dev"
+          icon={petitdev}
+          imageSource="/src/assets/petit.dev.png"
+        >
+          The landing page for my freelance mobile & web development business
+        </BioItem>
       </div>
     </div>
   );
@@ -84,30 +101,41 @@ function SocialIcon(props: { icon: string }) {
 
 function BioItem(props: {
   title: string;
-  graphic: string;
+  graphic?: string;
   icon: string;
-  graphicPosition: "top-left" | "bottom-right";
+  graphicPosition?: "top-left" | "bottom-right";
   children: string;
-  videoPoster: string;
-  videoSource: string;
+  videoPoster?: string;
+  videoSource?: string;
+  imageSource?: string;
 }) {
   return (
     <div class="flex max-w-full flex-col overflow-y-visible">
-      <Show when={props.graphicPosition == "top-left"}>
+      <Show
+        when={
+          props.graphic &&
+          (!props.graphicPosition || props.graphicPosition == "top-left")
+        }
+      >
         <div class="relative bottom-10">
           <img class="h-24 z-20 absolute" src={props.graphic} />
         </div>
       </Show>
       <div class="overflow-hidden bg-baseLight z-10 hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-3xl relative border-solid border-black border-4">
-        <video
-          class="object-cover"
-          poster={props.videoPoster}
-          muted
-          autoplay
-          loop
+        <Show
+          when={props.videoSource}
+          fallback={<img src={props.imageSource} />}
         >
-          <source src={props.videoSource} type="video/mp4" />
-        </video>
+          <video
+            class="object-cover"
+            poster={props.videoPoster}
+            muted
+            autoplay
+            loop
+          >
+            <source src={props.videoSource} type="video/mp4" />
+          </video>
+        </Show>
         <div class="py-2">
           <h2 class="font-extrabold text-l flex items-center justify-center">
             {props.title} <img class="ml-1 h-4" src={props.icon} />
