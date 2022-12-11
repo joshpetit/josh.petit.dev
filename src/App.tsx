@@ -44,31 +44,31 @@ function Header() {
         </div>
       </div>
 
-      <div class="flex flex-col items-center mt-7 font-noto-sans mx-4">
-        <BioItem
-          title="YouTube"
-          icon={youtube}
-          graphic={megaphone}
-          graphicPosition="top-left"
-          videoSource="/src/assets/ytgif.mp4"
-          videoPoster="/src/assets/nice_bg.png"
-        >
-          Me talking about tech I use to supercharge my life and occasionally
-          skits!
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
+        <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
+          <BioItem
+            title="Github"
+            icon={youtube}
+            graphic={code}
+            graphicPosition="bottom-right"
+            videoSource="/src/assets/ytgif.mp4"
+            videoPoster="/src/assets/nice_bg.png"
+          >
+            Me talking about tech I use to supercharge my life and occasionally
+            skits!
+          </BioItem>
+          <div class="bg-black rounded-full h-3 w-3" />
+          <BioItem
+            title="YouTube"
+            icon={youtube}
+            graphic={megaphone}
+            graphicPosition="top-left"
+            videoSource="/src/assets/ytgif.mp4"
+            videoPoster="/src/assets/nice_bg.png"
+          >
+            Me talking about tech I use to supercharge my life and occasionally
+            skits!
+          </BioItem>
 
-        <BioItem
-          title="Github"
-          icon={youtube}
-          graphic={code}
-          graphicPosition="bottom-right"
-          videoSource="/src/assets/ytgif.mp4"
-          videoPoster="/src/assets/nice_bg.png"
-        >
-          Me talking about tech I use to supercharge my life and occasionally
-          skits!
-        </BioItem>
       </div>
     </div>
   );
@@ -92,7 +92,7 @@ function BioItem(props: {
   videoSource: string;
 }) {
   return (
-    <div class="flex flex-col w-screen">
+    <div class="flex max-w-full flex-col overflow-y-visible">
       <Show when={props.graphicPosition == "top-left"}>
         <div class="relative bottom-10">
           <img class="h-24 z-20 absolute" src={props.graphic} />
@@ -119,7 +119,7 @@ function BioItem(props: {
       <Show when={props.graphicPosition == "bottom-right"}>
         <div class="relative">
           <img
-            class="h-24 z-0 rotate-[125deg] bottom-0 left-[80%] absolute"
+            class="h-24 z-0 rotate-[135deg] bottom-[-15px] right-0 absolute"
             src={props.graphic}
           />
         </div>
