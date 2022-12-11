@@ -59,9 +59,9 @@ function Header() {
         <div class="bg-black rounded-full h-3 w-3" />
 
         <BioItem
-          title="YouTube"
+          title="Github"
           icon={youtube}
-          graphic={megaphone}
+          graphic={code}
           graphicPosition="bottom-right"
           videoSource="/src/assets/ytgif.mp4"
           videoPoster="/src/assets/nice_bg.png"
@@ -92,7 +92,7 @@ function BioItem(props: {
   videoSource: string;
 }) {
   return (
-    <div class="flex flex-col">
+    <div class="flex flex-col w-screen">
       <Show when={props.graphicPosition == "top-left"}>
         <div class="relative bottom-10">
           <img class="h-24 z-20 absolute" src={props.graphic} />
@@ -117,9 +117,9 @@ function BioItem(props: {
         </div>
       </div>
       <Show when={props.graphicPosition == "bottom-right"}>
-        <div class="self-end relative">
+        <div class="relative">
           <img
-            class="h-24 z-0 bottom-0 left-[80%] absolute"
+            class="h-24 z-0 rotate-[125deg] bottom-0 left-[80%] absolute"
             src={props.graphic}
           />
         </div>
