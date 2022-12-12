@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         baseLight: "#90FFCC",
         primary: "#F4AD47",
+        secondary: "#e8594f",
         baseDark: "#46A95C",
       },
       dropShadow: {

@@ -26,12 +26,15 @@ function Header() {
         <div class="flex border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 rounded-full w-40 mb-4 web-cam">
           <video
             class="object-cover"
-            poster="/src/assets/nice_bg.png"
+            poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
             muted
             autoplay
             loop
           >
-            <source src="/src/assets/header.mp4" type="video/mp4" />
+            <source
+              src="/src/assets/josh.petit.dev-slideshow.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
         <div class="mb-4 px-6">
@@ -44,8 +47,14 @@ function Header() {
           </p>
         </div>
         <div class="flex w-full px-28 py-2 justify-evenly">
-          <SocialIcon icon={instagram} />
-          <SocialIcon icon={linkedin} />
+          <SocialIcon
+            href="https://www.instagram.com/josh.petitma/"
+            icon={instagram}
+          />
+          <SocialIcon
+            href="https://www.linkedin.com/in/joshua-petitma"
+            icon={linkedin}
+          />
         </div>
       </div>
 
@@ -57,6 +66,7 @@ function Header() {
           graphicPosition="top-left"
           videoSource="/src/assets/ytgif.mp4"
           videoPoster="/src/assets/ytgif_poster.png"
+          href={"https://www.youtube.com/@joshpetit"}
         >
           Me talking about tech I use to supercharge my life and occasionally
           skits!
@@ -68,9 +78,10 @@ function Header() {
           graphic={coder}
           graphicPosition="top-right"
           imageSource="/src/assets/petit.dev.png"
+          href={"https://petit.dev"}
         >
-          I do freelance web & mobile app development, open to new
-          project requests!
+          I do freelance web & mobile app development, open to new project
+          requests!
         </BioItem>
         <div class="bg-black rounded-full h-3 w-3" />
         <BioItem
@@ -78,6 +89,7 @@ function Header() {
           icon={openbook}
           graphic={cross}
           imageSource="/src/assets/joshministers.png"
+          href={"https://joshministers.com"}
           rotate="rotate-[45deg]"
         >
           A Life & Religion blog where I post devotionals and sermons I create.
@@ -90,6 +102,7 @@ function Header() {
           graphicPosition="bottom-right"
           videoSource="/src/assets/coding.mp4"
           videoPoster="/src/assets/nice_bg.png"
+          href={"https://github.com/joshpetit"}
         >
           Find my dotfiles and programs/packages I make
         </BioItem>
@@ -98,11 +111,13 @@ function Header() {
   );
 }
 
-function SocialIcon(props: { icon: string }) {
+function SocialIcon(props: { icon: string; href: string }) {
   return (
-    <div class={"w-fit overflow-visible"}>
-      <img class="h-10 social-icon" src={props.icon} />
-    </div>
+    <a href={props.href} target="_blank">
+      <div class={"w-fit overflow-visible"}>
+        <img class="h-10 social-icon" src={props.icon} />
+      </div>
+    </a>
   );
 }
 
@@ -115,6 +130,7 @@ function BioItem(props: {
   videoPoster?: string;
   videoSource?: string;
   imageSource?: string;
+  href?: string;
   rotate?: string;
 }) {
   return (
@@ -148,27 +164,29 @@ function BioItem(props: {
           "overflow-hidden bg-baseLight z-10 hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-3xl relative border-solid border-black border-4"
         }
       >
-        <Show
-          when={props.videoSource}
-          fallback={<img src={props.imageSource} />}
-        >
-          <video
-            class="object-cover"
-            poster={props.videoPoster ?? undefined}
-            muted
-            autoplay
-            loop
+        <a href={props.href} target="_blank">
+          <Show
+            when={props.videoSource}
+            fallback={<img src={props.imageSource} />}
           >
-            <source src={props.videoSource} type="video/mp4" />
-          </video>
-        </Show>
-        <div class="py-2">
-          <h2 class="font-extrabold text-l flex items-center justify-center">
-            {props.title} <img class="ml-1 h-4" src={props.icon} />
-          </h2>
+            <video
+              class="object-cover"
+              poster={props.videoPoster ?? undefined}
+              muted
+              autoplay
+              loop
+            >
+              <source src={props.videoSource} type="video/mp4" />
+            </video>
+          </Show>
+          <div class="py-2">
+            <h2 class="font-extrabold text-l flex items-center justify-center">
+              {props.title} <img class="ml-1 h-4" src={props.icon} />
+            </h2>
 
-          <p class="font-medium px-4 py-1">{props.children}</p>
-        </div>
+            <p class="font-medium px-4 py-1">{props.children}</p>
+          </div>
+        </a>
       </div>
       <Show when={props.graphicPosition == "bottom-right"}>
         <div class="relative">
