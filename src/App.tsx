@@ -1,11 +1,13 @@
 import { Show } from "solid-js";
 
 import openbook from "./openbook.svg";
+import cross from "./cross.svg";
 import petitdev from "./petit.dev-partial.svg";
 import instagram from "./instagram.svg";
 import github from "./github.svg";
 import megaphone from "./megaphone.svg";
 import code from "./code.svg";
+import coder from "./coder.svg";
 import youtube from "./youtube.svg";
 import linkedin from "./linkedin.svg";
 
@@ -54,10 +56,31 @@ function Header() {
           graphic={megaphone}
           graphicPosition="top-left"
           videoSource="/src/assets/ytgif.mp4"
-          videoPoster="/src/assets/nice_bg.png"
+          videoPoster="/src/assets/ytgif_poster.png"
         >
           Me talking about tech I use to supercharge my life and occasionally
           skits!
+        </BioItem>
+        <div class="bg-black rounded-full h-3 w-3" />
+        <BioItem
+          title="petit.dev"
+          icon={petitdev}
+          graphic={coder}
+          graphicPosition="top-right"
+          imageSource="/src/assets/petit.dev.png"
+        >
+          I do freelance web & mobile app development, open to new
+          project requests!
+        </BioItem>
+        <div class="bg-black rounded-full h-3 w-3" />
+        <BioItem
+          title="joshministers.com"
+          icon={openbook}
+          graphic={cross}
+          imageSource="/src/assets/joshministers.png"
+          rotate="rotate-[45deg]"
+        >
+          A Life & Religion blog where I post devotionals and sermons I create.
         </BioItem>
         <div class="bg-black rounded-full h-3 w-3" />
         <BioItem
@@ -69,22 +92,6 @@ function Header() {
           videoPoster="/src/assets/nice_bg.png"
         >
           Find my dotfiles and programs/packages I make
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem
-          title="joshministers.com"
-          icon={openbook}
-          imageSource="/src/assets/joshministers.png"
-        >
-          A Life & Religion blog where I post devotionals and sermons I make.
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem
-          title="petit.dev"
-          icon={petitdev}
-          imageSource="/src/assets/petit.dev.png"
-        >
-          The landing page for my freelance mobile & web development business
         </BioItem>
       </div>
     </div>
@@ -103,11 +110,12 @@ function BioItem(props: {
   title: string;
   graphic?: string;
   icon: string;
-  graphicPosition?: "top-left" | "bottom-right";
+  graphicPosition?: "top-left" | "bottom-right" | "top-right";
   children: string;
   videoPoster?: string;
   videoSource?: string;
   imageSource?: string;
+  rotate?: string;
 }) {
   return (
     <div class="flex max-w-full flex-col overflow-y-visible">
@@ -118,17 +126,35 @@ function BioItem(props: {
         }
       >
         <div class="relative bottom-10">
-          <img class="h-24 z-20 absolute" src={props.graphic} />
+          <img
+            class={"h-24 object-cover z-20 absolute" + " " + props.rotate ?? ""}
+            src={props.graphic}
+          />
         </div>
       </Show>
-      <div class="overflow-hidden bg-baseLight z-10 hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-3xl relative border-solid border-black border-4">
+      <Show when={props.graphic && props.graphicPosition == "top-right"}>
+        <div class="relative bottom-10">
+          <img
+            class={
+              "h-24 object-cover z-20 absolute right-0" + " " + props.rotate ??
+              ""
+            }
+            src={props.graphic}
+          />
+        </div>
+      </Show>
+      <div
+        class={
+          "overflow-hidden bg-baseLight z-10 hover:drop-shadow-none transition-all left-1 bottom-1 hover:left-0 hover:bottom-0 drop-shadow-cool m-4 rounded-3xl relative border-solid border-black border-4"
+        }
+      >
         <Show
           when={props.videoSource}
           fallback={<img src={props.imageSource} />}
         >
           <video
             class="object-cover"
-            poster={props.videoPoster}
+            poster={props.videoPoster ?? undefined}
             muted
             autoplay
             loop
@@ -147,7 +173,7 @@ function BioItem(props: {
       <Show when={props.graphicPosition == "bottom-right"}>
         <div class="relative">
           <img
-            class="h-24 z-0 rotate-[135deg] bottom-[-15px] right-0 absolute"
+            class="h-24 z-0 bottom-[-15px] right-0 absolute rotate-[135deg] "
             src={props.graphic}
           />
         </div>
