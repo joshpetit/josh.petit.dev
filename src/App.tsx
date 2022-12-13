@@ -15,100 +15,108 @@ function App() {
   return (
     <div class="bg-baseDark overflow-auto h-full text-center">
       <Header />
+      <BioList />
     </div>
   );
 }
 
 function Header() {
   return (
-    <div>
-      <div class="bg-baseLight rounded-b-3xl p-5 flex flex-col items-center">
-        <div class="flex border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 rounded-full w-40 mb-4 web-cam">
-          <video
-            class="object-cover"
-            poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
-            muted
-            autoplay
-            loop
-          >
-            <source
-              src="/src/assets/josh.petit.dev-slideshow.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-        <div class="mb-4 px-6">
-          <p class="text-3xl font-extrabold">Joshua Petitma</p>
-          <Show when={false}>
-            <p class="text-s mb-2">(Joshua "Pey tee ma")</p>
-          </Show>
-          <p class="font-bold">
-            Love God, work hard, help others, and experience life.
-          </p>
-        </div>
-        <div class="flex w-full px-28 py-2 justify-evenly">
-          <SocialIcon
-            href="https://www.instagram.com/josh.petitma/"
-            icon={instagram}
+    <div class="bg-baseLight rounded-b-3xl p-5 flex flex-col items-center">
+      <div class="flex border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 rounded-full w-40 mb-4 web-cam">
+        <video
+          class="object-cover"
+          poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
+          muted
+          autoplay
+          loop
+        >
+          <source
+            src="/src/assets/josh.petit.dev-slideshow.mp4"
+            type="video/mp4"
           />
-          <SocialIcon
-            href="https://www.linkedin.com/in/joshua-petitma"
-            icon={linkedin}
-          />
-        </div>
+        </video>
       </div>
-
-      <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
-        <BioItem
-          title="YouTube"
-          icon={youtube}
-          graphic={megaphone}
-          graphicPosition="top-left"
-          videoSource="/src/assets/ytgif.mp4"
-          videoPoster="/src/assets/ytgif_poster.png"
-          href={"https://www.youtube.com/@joshpetit"}
-        >
-          Me talking about tech I use to supercharge my life and occasionally
-          skits!
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem
-          title="petit.dev"
-          icon={petitdev}
-          graphic={coder}
-          graphicPosition="top-right"
-          imageSource="/src/assets/petit.dev.png"
-          href={"https://petit.dev"}
-        >
-          I do freelance web & mobile app development, open to new project
-          requests!
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem
-          title="joshministers.com"
-          icon={openbook}
-          graphic={cross}
-          imageSource="/src/assets/joshministers.png"
-          href={"https://joshministers.com"}
-          rotate="rotate-[45deg]"
-        >
-          A Life & Religion blog where I post devotionals and sermons I create.
-        </BioItem>
-        <div class="bg-black rounded-full h-3 w-3" />
-        <BioItem
-          title="Github"
-          icon={github}
-          graphic={code}
-          graphicPosition="bottom-right"
-          videoSource="/src/assets/coding.mp4"
-          videoPoster="/src/assets/nice_bg.png"
-          href={"https://github.com/joshpetit"}
-        >
-          Find my dotfiles and programs/packages I make
-        </BioItem>
+      <div class="mb-4 px-6">
+        <p class="text-3xl font-extrabold">Joshua Petitma</p>
+        <Show when={false}>
+          <p class="text-s mb-2">(Joshua "Pey tee ma")</p>
+        </Show>
+        <p class="font-bold">
+          Love God, work hard, help others, and experience life.
+        </p>
+      </div>
+      <div class="flex w-full px-28 py-2 justify-evenly">
+        <SocialIcon
+          href="https://www.instagram.com/josh.petitma/"
+          icon={instagram}
+        />
+        <SocialIcon
+          href="https://www.linkedin.com/in/joshua-petitma"
+          icon={linkedin}
+        />
       </div>
     </div>
   );
+}
+
+function BioList() {
+  return (
+    <div class="flex flex-col items-center mt-7 font-noto-sans px-4">
+      <BioItem
+        title="YouTube"
+        icon={youtube}
+        graphic={megaphone}
+        graphicPosition="top-left"
+        videoSource="/src/assets/ytgif.mp4"
+        videoPoster="/src/assets/ytgif_poster.png"
+        href={"https://www.youtube.com/@joshpetit"}
+      >
+        Me talking about tech I use to supercharge my life and occasionally
+        skits!
+      </BioItem>
+      <BulletSeparator />
+      <BioItem
+        title="petit.dev"
+        icon={petitdev}
+        graphic={coder}
+        graphicPosition="top-right"
+        imageSource="/src/assets/petit.dev.png"
+        href={"https://petit.dev"}
+      >
+        I do freelance web & mobile app development, open to new project
+        requests!
+      </BioItem>
+
+      <BulletSeparator />
+      <BioItem
+        title="joshministers.com"
+        icon={openbook}
+        graphic={cross}
+        imageSource="/src/assets/joshministers.png"
+        href={"https://joshministers.com"}
+        rotate="rotate-[45deg]"
+      >
+        A Life & Religion blog where I post devotionals and sermons I create.
+      </BioItem>
+      <BulletSeparator />
+      <BioItem
+        title="Github"
+        icon={github}
+        graphic={code}
+        graphicPosition="bottom-right"
+        videoSource="/src/assets/coding.mp4"
+        videoPoster="/src/assets/nice_bg.png"
+        href={"https://github.com/joshpetit"}
+      >
+        Find my dotfiles and programs/packages I make
+      </BioItem>
+    </div>
+  );
+}
+
+function BulletSeparator() {
+  return <div class="bg-black rounded-full h-3 w-3" />;
 }
 
 function SocialIcon(props: { icon: string; href: string }) {
