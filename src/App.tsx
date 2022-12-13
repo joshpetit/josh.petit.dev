@@ -46,7 +46,7 @@ function Header() {
           Love God, work hard, help others, and experience life.
         </p>
       </div>
-      <div class="flex w-full px-28 py-2 justify-evenly">
+      <div class="flex w-full px-28 py-2 justify-around">
         <SocialIcon
           href="https://www.instagram.com/josh.petitma/"
           icon={instagram}
