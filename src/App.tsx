@@ -16,7 +16,10 @@ import bird from "./bird.svg";
 function App() {
   return (
     <div class="bg-baseDark flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll">
-      <img src={tree} class="md:visible invisible absolute object-fill h-screen z-0" />
+      <img
+        src={tree}
+        class="md:visible invisible absolute object-fill h-screen z-0"
+      />
       <Header />
       <BioList />
     </div>
@@ -25,36 +28,38 @@ function App() {
 
 function Header() {
   return (
-    <div class="md:mr-24 overflow z-10 max-w-full bg-baseLight md:w-1/2 rounded-b-3xl py-5 md:rounded-l-none md:rounded-r-3xl">
+    <div class="md:mr-24 z-10 max-w-full justify-between items-center bg-baseLight md:w-1/2 rounded-b-3xl md:rounded-l-none md:rounded-r-3xl">
       <div class="relative w-full z-50">
-        <img class="absolute invisible md:visible right-[-65px] top-[-160px]" src={bird} />
+        <img
+          class="absolute invisible md:visible right-[-65px] top-[-138px]"
+          src={bird}
+        />
       </div>
-      <div class="flex flex-col items-center md:p-8">
-        <div class="flex border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 mb-4 web-cam">
-          <video
-            class="object-cover"
-            poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
-            muted
-            autoplay
-            loop
-          >
-            <source
-              src="/src/assets/josh.petit.dev-slideshow.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+      <div class="flex xl:flex-row flex-col items-center justify-center md:p-8 mt-5 md:mt-0">
         <div>
-          <div class="mb-4 px-6">
-            <p class="text-3xl font-extrabold">Joshua Petitma</p>
-            <Show when={false}>
-              <p class="text-s mb-2">(Joshua "Pey tee ma")</p>
-            </Show>
-            <p class="font-bold">
+          <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
+            <video
+              class="object-cover"
+              poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
+              muted
+              autoplay
+              loop
+            >
+              <source
+                src="/src/assets/josh.petit.dev-slideshow.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
+        <div class="flex flex-col justify-around h-full px-8">
+          <div class="mb-4 px-6 xl:px-0">
+            <p class="text-3xl xl:text-5xl font-extrabold">Joshua Petitma</p>
+            <p class="font-bold xl:text-2xl">
               Love God, work hard, help others, and experience life.
             </p>
           </div>
-          <div class="flex w-full px-28 py-2 justify-around md:justify-center md:px-0">
+          <div class="flex w-full xl:px-28 py-2 justify-center md:justify-between lg:justify-center xl:justify-center md:px-0">
             <SocialIcon
               href="https://www.instagram.com/josh.petitma/"
               icon={instagram}
@@ -72,7 +77,7 @@ function Header() {
 
 function BioList() {
   return (
-    <div class="flex flex-col md:w-1/2 overflow-y-scroll items-center md:justify-self-start mt-7 md:mt-0 font-noto-sans px-4 h-full">
+    <div class="flex xl:text-xl flex-col md:w-1/2 xl:w-5/12 md:overflow-y-scroll items-center md:mt-0 font-noto-sans px-4 h-full">
       <BioItem
         title="YouTube"
         icon={youtube}
@@ -132,8 +137,8 @@ function BulletSeparator() {
 function SocialIcon(props: { icon: string; href: string }) {
   return (
     <a href={props.href} target="_blank">
-      <div class={"w-fit overflow-visible mx-5"}>
-        <img class="h-10 social-icon" src={props.icon} />
+      <div class={"overflow-visible "}>
+        <img class="h-10 xl:h-12 social-icon md:mx-2 mx-5" src={props.icon} />
       </div>
     </a>
   );
@@ -152,7 +157,7 @@ function BioItem(props: {
   rotate?: string;
 }) {
   return (
-    <div class="flex max-w-full flex-col overflow-y-visible">
+    <div class="flex xl:w-10/12 flex-col overflow-y-visible max-w-xlg">
       <Show
         when={
           props.graphic &&
@@ -161,7 +166,10 @@ function BioItem(props: {
       >
         <div class="relative bottom-10">
           <img
-            class={"h-24 object-cover z-20 absolute md:top-8" + " " + props.rotate ?? ""}
+            class={
+              "h-24 object-cover z-20 absolute md:top-8" + " " + props.rotate ??
+              ""
+            }
             src={props.graphic}
           />
         </div>
