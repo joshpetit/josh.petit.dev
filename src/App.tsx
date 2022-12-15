@@ -15,7 +15,7 @@ import bird from "./bird.svg";
 
 function App() {
   return (
-    <div class="bg-baseDark flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll select-none">
+    <div class="bg-baseDark overflow-x-hidden flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll select-none">
       <img
         alt="tree"
         src={tree}
@@ -40,12 +40,7 @@ function Header() {
       <div class="flex xl:flex-row flex-col items-center justify-center md:p-8 mt-5 md:mt-0">
         <div>
           <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
-            <video
-              class="object-cover"
-              muted
-              autoplay
-              loop
-            >
+            <video class="object-cover" playsinline muted autoplay loop>
               <source
                 src="/assets/josh.petit.dev-slideshow.webm"
                 type="video/webm"
@@ -184,7 +179,7 @@ function BioItem(props: {
       <Show when={props.graphic && props.graphicPosition == "top-right"}>
         <div class="relative bottom-10">
           <img
-          alt="graphic"
+            alt="graphic"
             class={
               "h-24 object-cover z-20 absolute right-0" + " " + props.rotate ??
               ""
@@ -206,8 +201,9 @@ function BioItem(props: {
             <video
               class="object-cover"
               poster={props.videoPoster ?? undefined}
-              muted
+              playsinline
               autoplay
+              muted
               loop
             >
               <source src={props.videoSource} type="video/webm" />
@@ -215,7 +211,12 @@ function BioItem(props: {
           </Show>
           <div class="py-2">
             <h2 class="font-extrabold text-l flex items-center justify-center">
-              {props.title} <img alt="Descriptive Icon" class="ml-1 h-4 xl:h-6" src={props.icon} />
+              {props.title}{" "}
+              <img
+                alt="Descriptive Icon"
+                class="ml-1 h-4 xl:h-6"
+                src={props.icon}
+              />
             </h2>
 
             <p class="font-medium px-4 py-1">{props.children}</p>
@@ -225,7 +226,7 @@ function BioItem(props: {
       <Show when={props.graphicPosition == "bottom-right"}>
         <div class="relative">
           <img
-          alt="graphic"
+            alt="graphic"
             class="h-24 z-0 bottom-[-15px] right-0 absolute rotate-[135deg] "
             src={props.graphic}
           />
