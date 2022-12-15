@@ -17,6 +17,7 @@ function App() {
   return (
     <div class="bg-baseDark flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll select-none">
       <img
+        alt="tree"
         src={tree}
         class="md:visible pointer-events-none invisible absolute object-fill h-screen z-0"
       />
@@ -31,6 +32,7 @@ function Header() {
     <div class="md:mr-24 z-10 max-w-full justify-between items-center bg-baseLight md:w-1/2 rounded-b-3xl md:rounded-l-none md:rounded-r-3xl">
       <div class="relative w-full z-50">
         <img
+          alt="bird"
           class="absolute pointer-events-none invisible md:visible right-[-65px] top-[-138px]"
           src={bird}
         />
@@ -62,9 +64,11 @@ function Header() {
           <div class="flex w-full py-2 justify-center">
             <SocialIcon
               href="https://www.instagram.com/josh.petitma/"
+              alt="Instagram"
               icon={instagram}
             />
             <SocialIcon
+              alt="LinkedIn"
               href="https://www.linkedin.com/in/joshua-petitma"
               icon={linkedin}
             />
@@ -133,11 +137,15 @@ function BulletSeparator() {
   return <div class="bg-black rounded-full h-3 w-3" />;
 }
 
-function SocialIcon(props: { icon: string; href: string }) {
+function SocialIcon(props: { icon: string; href: string; alt: string }) {
   return (
     <a href={props.href} target="_blank">
       <div class={"overflow-visible "}>
-        <img class="h-10 xl:h-12 social-icon md:mx-2 mx-5" src={props.icon} />
+        <img
+          alt={props.alt}
+          class="h-10 xl:h-12 social-icon md:mx-2 mx-5"
+          src={props.icon}
+        />
       </div>
     </a>
   );
@@ -165,6 +173,7 @@ function BioItem(props: {
       >
         <div class="relative bottom-10">
           <img
+            alt="graphic"
             class={
               "h-24 object-cover z-20 absolute md:top-8" + " " + props.rotate ??
               ""
@@ -176,6 +185,7 @@ function BioItem(props: {
       <Show when={props.graphic && props.graphicPosition == "top-right"}>
         <div class="relative bottom-10">
           <img
+          alt="graphic"
             class={
               "h-24 object-cover z-20 absolute right-0" + " " + props.rotate ??
               ""
@@ -192,7 +202,7 @@ function BioItem(props: {
         <a href={props.href} target="_blank">
           <Show
             when={props.videoSource}
-            fallback={<img src={props.imageSource} />}
+            fallback={<img alt="Info Poster" src={props.imageSource} />}
           >
             <video
               class="object-cover"
@@ -206,7 +216,7 @@ function BioItem(props: {
           </Show>
           <div class="py-2">
             <h2 class="font-extrabold text-l flex items-center justify-center">
-              {props.title} <img class="ml-1 h-4 xl:h-6" src={props.icon} />
+              {props.title} <img alt="Descriptive Icon" class="ml-1 h-4 xl:h-6" src={props.icon} />
             </h2>
 
             <p class="font-medium px-4 py-1">{props.children}</p>
@@ -216,6 +226,7 @@ function BioItem(props: {
       <Show when={props.graphicPosition == "bottom-right"}>
         <div class="relative">
           <img
+          alt="graphic"
             class="h-24 z-0 bottom-[-15px] right-0 absolute rotate-[135deg] "
             src={props.graphic}
           />
