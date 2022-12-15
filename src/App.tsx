@@ -126,6 +126,7 @@ function BioList() {
         graphic={code}
         graphicPosition="bottom-right"
         videoSource="/assets/coding.webm"
+        videoPoster="/assets/coding_poster.webp"
         href={"https://github.com/joshpetit"}
       >
         Find my dotfiles and programs/packages I make
