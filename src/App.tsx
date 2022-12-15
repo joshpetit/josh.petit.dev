@@ -40,13 +40,13 @@ function Header() {
           <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
             <video
               class="object-cover"
-              poster="/src/assets/josh.petit.dev-slideshow_poster.jpg"
+              poster="/assets/josh.petit.dev-slideshow_poster.jpg"
               muted
               autoplay
               loop
             >
               <source
-                src="/src/assets/josh.petit.dev-slideshow.mp4"
+                src="/assets/josh.petit.dev-slideshow.mp4"
                 type="video/mp4"
               />
             </video>
@@ -83,8 +83,8 @@ function BioList() {
         icon={youtube}
         graphic={megaphone}
         graphicPosition="top-left"
-        videoSource="/src/assets/ytgif.mp4"
-        videoPoster="/src/assets/ytgif_poster.png"
+        videoSource="/assets/ytgif.mp4"
+        videoPoster="/assets/ytgif_poster.png"
         href={"https://www.youtube.com/@joshpetit"}
       >
         Me talking about tech I use to supercharge my life and occasionally
@@ -96,7 +96,7 @@ function BioList() {
         icon={petitdev}
         graphic={coder}
         graphicPosition="top-right"
-        imageSource="/src/assets/petit.dev.png"
+        imageSource="/assets/petit.dev.png"
         href={"https://petit.dev"}
       >
         I do freelance web & mobile app development, open to new project
@@ -108,7 +108,7 @@ function BioList() {
         title="joshministers.com"
         icon={openbook}
         graphic={cross}
-        imageSource="/src/assets/joshministers.png"
+        imageSource="/assets/joshministers.png"
         href={"https://joshministers.com"}
         rotate="rotate-[45deg]"
       >
@@ -120,8 +120,8 @@ function BioList() {
         icon={github}
         graphic={code}
         graphicPosition="bottom-right"
-        videoSource="/src/assets/coding.mp4"
-        videoPoster="/src/assets/nice_bg.png"
+        videoSource="/assets/coding.mp4"
+        videoPoster="/assets/nice_bg.png"
         href={"https://github.com/joshpetit"}
       >
         Find my dotfiles and programs/packages I make
