@@ -40,7 +40,7 @@ function Header() {
           <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
             <video
               class="object-cover"
-              poster="/assets/josh.petit.dev-slideshow_poster.jpg"
+              poster="/assets/josh.petit.dev-slideshow_poster.webp"
               muted
               autoplay
               loop
@@ -84,7 +84,7 @@ function BioList() {
         graphic={megaphone}
         graphicPosition="top-left"
         videoSource="/assets/ytgif.mp4"
-        videoPoster="/assets/ytgif_poster.png"
+        videoPoster="/assets/ytgif_poster.webp"
         href={"https://www.youtube.com/@joshpetit"}
       >
         Me talking about tech I use to supercharge my life and occasionally
@@ -96,7 +96,7 @@ function BioList() {
         icon={petitdev}
         graphic={coder}
         graphicPosition="top-right"
-        imageSource="/assets/petit.dev.png"
+        imageSource="/assets/petit.dev.webp"
         href={"https://petit.dev"}
       >
         I do freelance web & mobile app development, open to new project
@@ -108,7 +108,7 @@ function BioList() {
         title="joshministers.com"
         icon={openbook}
         graphic={cross}
-        imageSource="/assets/joshministers.png"
+        imageSource="/assets/joshministers.webp"
         href={"https://joshministers.com"}
         rotate="rotate-[45deg]"
       >
@@ -121,7 +121,6 @@ function BioList() {
         graphic={code}
         graphicPosition="bottom-right"
         videoSource="/assets/coding.mp4"
-        videoPoster="/assets/nice_bg.png"
         href={"https://github.com/joshpetit"}
       >
         Find my dotfiles and programs/packages I make
