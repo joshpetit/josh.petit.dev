@@ -15,10 +15,10 @@ import bird from "./bird.svg";
 
 function App() {
   return (
-    <div class="bg-baseDark flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll">
+    <div class="bg-baseDark flex flex-col md:flex-row md:items-center overflow-auto h-full text-center md:justify-between md:h-screen md:overflow-scroll select-none">
       <img
         src={tree}
-        class="md:visible invisible absolute object-fill h-screen z-0"
+        class="md:visible pointer-events-none invisible absolute object-fill h-screen z-0"
       />
       <Header />
       <BioList />
@@ -31,7 +31,7 @@ function Header() {
     <div class="md:mr-24 z-10 max-w-full justify-between items-center bg-baseLight md:w-1/2 rounded-b-3xl md:rounded-l-none md:rounded-r-3xl">
       <div class="relative w-full z-50">
         <img
-          class="absolute invisible md:visible right-[-65px] top-[-138px]"
+          class="absolute pointer-events-none invisible md:visible right-[-65px] top-[-138px]"
           src={bird}
         />
       </div>
@@ -59,7 +59,7 @@ function Header() {
               Love God, work hard, help others, and experience life.
             </p>
           </div>
-          <div class="flex w-full xl:px-28 py-2 justify-center md:justify-between lg:justify-center xl:justify-center md:px-0">
+          <div class="flex w-full py-2 justify-center">
             <SocialIcon
               href="https://www.instagram.com/josh.petitma/"
               icon={instagram}
@@ -207,7 +207,7 @@ function BioItem(props: {
           </Show>
           <div class="py-2">
             <h2 class="font-extrabold text-l flex items-center justify-center">
-              {props.title} <img class="ml-1 h-4" src={props.icon} />
+              {props.title} <img class="ml-1 h-4 xl:h-6" src={props.icon} />
             </h2>
 
             <p class="font-medium px-4 py-1">{props.children}</p>
