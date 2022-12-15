@@ -42,14 +42,13 @@ function Header() {
           <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
             <video
               class="object-cover"
-              poster="/assets/josh.petit.dev-slideshow_poster.webp"
               muted
               autoplay
               loop
             >
               <source
-                src="/assets/josh.petit.dev-slideshow.mp4"
-                type="video/mp4"
+                src="/assets/josh.petit.dev-slideshow.webm"
+                type="video/webm"
               />
             </video>
           </div>
@@ -87,7 +86,7 @@ function BioList() {
         icon={youtube}
         graphic={megaphone}
         graphicPosition="top-left"
-        videoSource="/assets/ytgif.mp4"
+        videoSource="/assets/ytgif.webm"
         videoPoster="/assets/ytgif_poster.webp"
         href={"https://www.youtube.com/@joshpetit"}
       >
@@ -124,7 +123,7 @@ function BioList() {
         icon={github}
         graphic={code}
         graphicPosition="bottom-right"
-        videoSource="/assets/coding.mp4"
+        videoSource="/assets/coding.webm"
         href={"https://github.com/joshpetit"}
       >
         Find my dotfiles and programs/packages I make
@@ -211,7 +210,7 @@ function BioItem(props: {
               autoplay
               loop
             >
-              <source src={props.videoSource} type="video/mp4" />
+              <source src={props.videoSource} type="video/webm" />
             </video>
           </Show>
           <div class="py-2">
