@@ -40,7 +40,14 @@ function Header() {
       <div class="flex xl:flex-row flex-col items-center justify-center md:p-8 mt-5 md:mt-0">
         <div>
           <div class="flex  xl:h-72 xl:w-72 border-primary border-solid border-8 overflow-hidden bg-gray-300 h-40 md:h-52 md:w-52 rounded-full w-40 web-cam">
-            <video class="object-cover" playsinline muted autoplay loop>
+            <video
+              poster="/assets/josh.petit.dev-slideshow_poster.webp"
+              class="object-cover"
+              playsinline
+              muted
+              autoplay
+              loop
+            >
               <source
                 src="/assets/josh.petit.dev-slideshow.webm"
                 type="video/webm"
