@@ -1,10 +1,12 @@
 import { Show } from "solid-js";
 
 import openbook from "./openbook.svg";
+import githubfilled from "./github_filled.svg";
 import tree from "./sitting_beneath_tree.svg";
 import cross from "./cross.svg";
 import petitdev from "./petit.dev-partial.svg";
 import instagram from "./instagram.svg";
+import bibleram from "./bible_ram.svg";
 import github from "./github.svg";
 import megaphone from "./megaphone.svg";
 import code from "./code.svg";
@@ -58,8 +60,8 @@ function Header() {
         <div class="flex flex-col justify-around h-full px-8">
           <div class="mb-4 px-6 xl:px-0">
             <p class="text-3xl xl:text-5xl font-extrabold">Joshua Petitma</p>
-            <p class="font-bold xl:text-2xl">
-              Love God, work hard, help others, and experience life.
+            <p class="font-semibold xl:text-2xl">
+              Inviting others to experience with me the <span class="underline">fullness</span> of a life led by God.
             </p>
           </div>
           <div class="flex w-full py-2 justify-center">
@@ -72,6 +74,11 @@ function Header() {
               alt="LinkedIn"
               href="https://www.linkedin.com/in/joshua-petitma"
               icon={linkedin}
+            />
+            <SocialIcon
+              alt="LinkedIn"
+              href="https://github.com/joshpetit/"
+              icon={githubfilled}
             />
           </div>
         </div>
@@ -97,15 +104,14 @@ function BioList() {
       </BioItem>
       <BulletSeparator />
       <BioItem
-        title="petit.dev"
-        icon={petitdev}
+        title="Bible Ram"
+        icon={bibleram}
         graphic={coder}
         graphicPosition="top-right"
-        imageSource="/assets/petit.dev.webp"
+        imageSource="/assets/bible_ram_poster.webp"
         href={"https://petit.dev"}
       >
-        I do freelance web & mobile app development, open to new project
-        requests!
+              An app I develop to help people memorize scripture. Memorizing scripture will change your life
       </BioItem>
 
       <BulletSeparator />
