@@ -109,7 +109,7 @@ function BioList() {
         graphic={coder}
         graphicPosition="top-right"
         imageSource="/assets/bible_ram_poster.webp"
-        href={"https://petit.dev"}
+        href={"https://bibleram.app"}
       >
               An app I develop to help people memorize scripture. Memorizing scripture will change your life
       </BioItem>
